@@ -31,7 +31,7 @@ pragma solidity ^0.8.0;
 contract Yul {
     // bytes4(keccak256(NumberLess())) => 0x994823ad.
 
-    function revertWithArgs(uint256 num) public pure {
+    function revertWithoutArgs(uint256 num) public pure {
         assembly {
             if lt(num, 0x06) {
                 mstore(0x80, 0x994823ad) // 4 bytes.
@@ -51,7 +51,7 @@ pragma solidity ^0.8.0;
 contract Yul {
     // bytes4(keccak256(NumberLessThan6(uint256))) => 0x8205edea
     
-    function revertWithErrorMessage(uint256 num) public pure {
+    function revertWithArguments(uint256 num) public pure {
         assembly {
             if lt(num, 0x06) {
                 mstore(0x80, 0x8205edea)
